@@ -1,0 +1,82 @@
+---
+const capacidades = [
+  {
+    nombre: "Clientes y oportunidades",
+    texto:
+      "Seguí cada conversación con un cliente, desde el primer contacto hasta la venta cerrada.",
+    icono:
+      "M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2M10 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75",
+  },
+  {
+    nombre: "Facturación",
+    texto: "Facturas prolijas y en regla, sin planillas paralelas.",
+    icono:
+      "M6 3h9l4 4v14H6zM10 3v14M14 3v14M9 8h1M9 12h1M9 16h1M14 8h1M14 12h1M14 16h1",
+  },
+  {
+    nombre: "Ventas",
+    texto:
+      "Cotizá, confirmá y facturá pedidos sin perder el hilo entre un paso y el siguiente.",
+    icono: "M3 3h2l2.4 12.4a2 2 0 0 0 2 1.6h8.7a2 2 0 0 0 2-1.6L22 8H6",
+  },
+  {
+    nombre: "Compras",
+    texto:
+      "Pedile a tus proveedores lo que necesitás y controlá qué falta llegar.",
+    icono:
+      "M20 8H4l1.5 12.5A2 2 0 0 0 7.5 22h9a2 2 0 0 0 2-1.5L20 8ZM8 8V6a4 4 0 0 1 8 0v2",
+  },
+  {
+    nombre: "Inventario",
+    texto: "Sabé qué tenés, dónde está, y cuándo se te va a acabar.",
+    icono: "M21 8l-9-5-9 5 9 5 9-5ZM3 8v8l9 5 9-5V8M12 13v8",
+  },
+  {
+    nombre: "Proyectos",
+    texto:
+      "Organizá tareas, tiempos y equipos sin salir de la misma plataforma.",
+    icono:
+      "M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11",
+  },
+];
+---
+
+<section id="capacidades" class="relative px-6 py-28 md:px-16 md:py-40">
+  <div class="mx-auto max-w-5xl">
+    <p class="font-heading text-xs uppercase tracking-[0.15em] text-fg-muted">
+      Ya disponible
+    </p>
+    <h2
+      class="mt-4 max-w-2xl font-heading text-3xl font-bold leading-tight text-fg md:text-5xl"
+    >
+      Todo tu negocio, en un solo lugar.
+    </h2>
+
+    <div class="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        capacidades.map((capacidad) => (
+          <div class="capability-card rounded-2xl border border-border bg-bg-raised p-7">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#ff7a45"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d={capacidad.icono} />
+            </svg>
+            <h3 class="mt-5 font-heading text-lg font-semibold text-fg">
+              {capacidad.nombre}
+            </h3>
+            <p class="mt-2 text-sm leading-relaxed text-fg-muted">
+              {capacidad.texto}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@import "@fontsource-variable/space-grotesk";
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/jetbrains-mono";
+
+@theme {
+  --font-heading:
+    "Space Grotesk Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
+
+  /* Identidad visual v0 de +Nexo (greenfield) - ver design.md, Decision 3 */
+  --color-bg: #0a0a0b;
+  --color-bg-raised: #16161a;
+  --color-fg: #f5f5f7;
+  --color-fg-muted: #9a9aa2;
+  --color-border: #26262b;
+  --color-accent: #ff7a45;
+  --color-accent-soft: #7a3a20;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-heading);
+  }
+}
