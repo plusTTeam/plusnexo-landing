@@ -3,7 +3,8 @@
 Landing pública de +Nexo (ERP AI-native), construida con Astro. Vive
 enteramente en esta rama huérfana `website`: no comparte árbol con `main`
 (no hay `addons/`, `oca/` ni tooling de Python acá) y no está pensada para
-mergearse a `main` — se despliega directo a GitHub Pages desde acá.
+mergearse a `main` — se despliega directo a Netlify desde acá (integración
+nativa de Git, `website` como rama de producción).
 
 Change de OpenSpec que originó este proyecto:
 `openspec/changes/landing-nexo/` en la rama `main` (proposal, specs,
