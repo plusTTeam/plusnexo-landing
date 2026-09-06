@@ -1,14 +1,18 @@
 # +Nexo — Landing pública
 
-Landing pública de +Nexo (ERP AI-native), construida con Astro. Vive
-enteramente en esta rama huérfana `website`: no comparte árbol con `main`
-(no hay `addons/`, `oca/` ni tooling de Python acá) y no está pensada para
-mergearse a `main` — se despliega directo a Netlify desde acá (integración
-nativa de Git, `website` como rama de producción).
+Landing pública de +Nexo (ERP AI-native), construida con Astro. Vive en
+este repo **público**, separado del repo privado del producto
+(`plusTTeam/plus_odoo_ce_ai`, que tiene `addons/`, `oca/` y todo el código
+de Odoo) — así se puede publicar en GitHub Pages sin exponer nada del
+producto, y sin acoplar la landing al pipeline de calidad de Odoo.
+
+Se despliega a GitHub Pages en modo nativo de Actions al pushear a `main`
+(ver `.github/workflows/deploy.yml`).
 
 Change de OpenSpec que originó este proyecto:
-`openspec/changes/landing-nexo/` en la rama `main` (proposal, specs,
-design, tasks).
+`openspec/changes/landing-nexo/` en `plusTTeam/plus_odoo_ce_ai` (rama
+`main`, `openspec/changes/landing-nexo/` — proposal, specs, design,
+tasks).
 
 ## Identidad visual v0 (greenfield)
 
@@ -82,13 +86,13 @@ Todos corren desde la raíz de este proyecto:
 | `npm run format`       | Prettier — aplica formato (incluye `.astro`) |
 | `npm run format:check` | Prettier — solo verifica, no escribe         |
 
-## Trabajar en esta rama
+## Trabajar en este repo
 
-Esta rama es huérfana y no comparte historia con `main`. Para clonar/armar
-un worktree propio de `website` sin tocar el resto del repo:
+Es un repo independiente — cloná normalmente:
 
 ```sh
-git worktree add --orphan -b website ../website  # solo la primera vez
-# o, si la rama ya existe:
-git worktree add ../website website
+git clone https://github.com/plusTTeam/plusnexo-landing.git
+cd plusnexo-landing
+npm install
+npm run dev
 ```
