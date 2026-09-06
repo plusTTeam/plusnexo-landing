@@ -19,7 +19,7 @@ function heroEntrance() {
 }
 
 // Sección "el problema": se ancla en pantalla y cada dolor aparece en
-// secuencia a medida que se hace scroll (ver design.md, Decisión 2).
+// secuencia a medida que se hace scroll.
 function problemSection(isMobile) {
   const section = document.querySelector("#problema");
   const cards = gsap.utils.toArray(".problem-card");

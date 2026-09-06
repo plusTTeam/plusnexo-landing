@@ -1,84 +1,27 @@
-# +Nexo — Landing pública
+# +Nexo — Landing
 
-Landing pública de +Nexo (ERP AI-native), construida con Astro. Vive en
-este repo **público**, separado del repo privado del producto
-(`plusTTeam/plus_odoo_ce_ai`, que tiene `addons/`, `oca/` y todo el código
-de Odoo) — así se puede publicar en GitHub Pages sin exponer nada del
-producto, y sin acoplar la landing al pipeline de calidad de Odoo.
+Landing pública de **+Nexo**, el ERP AI-native que convierte una
+conversación en facturas, pedidos y clientes organizados — sin
+formularios, sin capacitación de semanas.
 
-Se despliega a GitHub Pages en modo nativo de Actions al pushear a `main`
-(ver `.github/workflows/deploy.yml`).
+Sitio: https://plustteam.github.io/plusnexo-landing/
 
-Change de OpenSpec que originó este proyecto:
-`openspec/changes/landing-nexo/` en `plusTTeam/plus_odoo_ce_ai` (rama
-`main`, `openspec/changes/landing-nexo/` — proposal, specs, design,
-tasks).
+Construida con [Astro](https://astro.build), Tailwind CSS y GSAP. Se
+despliega automáticamente a GitHub Pages al pushear a `main`.
 
-## Identidad visual v0 (greenfield)
+## Correr localmente
 
-+Nexo no tenía identidad de marca previa a esta landing — lo que sigue es
-la referencia v0, definida acá por primera vez.
-
-**Paleta** (fondo oscuro, un único acento):
-
-| Token                 | Valor     | Uso                                   |
-| --------------------- | --------- | ------------------------------------- |
-| `--color-bg`          | `#0A0A0B` | Fondo base                            |
-| `--color-bg-raised`   | `#16161A` | Tarjetas / superficies elevadas       |
-| `--color-border`      | `#26262B` | Bordes sutiles                        |
-| `--color-fg`          | `#F5F5F7` | Texto primario                        |
-| `--color-fg-muted`    | `#9A9AA2` | Texto secundario                      |
-| `--color-accent`      | `#FF7A45` | Único acento de marca (naranja/ámbar) |
-| `--color-accent-soft` | `#7A3A20` | Glow / fondos sutiles con el acento   |
-
-No se usa cyan ni violeta como color de marca — fue una decisión explícita
-para diferenciarse del acento más repetido en branding "AI-native" (ver
-`design.md` del change, Decisión 3).
-
-**Tipografía** (self-hosted vía `@fontsource-variable`, sin requests
-externos a Google Fonts):
-
-- **Space Grotesk** — titulares (`--font-heading`)
-- **Inter** — cuerpo (`--font-sans`)
-- **JetBrains Mono** — reservada específicamente para la porción
-  "estructurada" del demo de chat (refuerza visualmente el mensaje "esto
-  se convierte en un dato estructurado", sin necesidad de decirlo en el
-  copy)
-
-**Marca**: wordmark "+Nexo" (el "+" en el acento, "Nexo" en texto
-primario), sin isotipo/símbolo en esta iteración.
-
-**Vocabulario de movimiento**: un único "flourish" fuerte por pantalla (el
-glow del acento en el hero); el resto de las secciones usa reveals simples
-y consistentes (mismo easing/duración en todo el sitio). Pin/scroll-scrub
-con GSAP se reserva para las 2 secciones de mayor peso narrativo ("el
-problema" y el demo de chat); todo lo demás usa reveals de fade+translate.
-`prefers-reduced-motion` desactiva el pin/scrub globalmente.
-
-Los tokens de color/tipografía viven en `src/styles/global.css` (bloque
-`@theme` de Tailwind v4) — esa es la fuente de verdad, esta tabla es
-documentación de referencia.
-
-## Estructura del proyecto
-
-```text
-/
-├── public/
-├── src/
-│   ├── pages/
-│   │   └── index.astro
-│   └── styles/
-│       └── global.css      # tokens de diseño (@theme) + estilos base
-└── package.json
+```sh
+git clone https://github.com/plusTTeam/plusnexo-landing.git
+cd plusnexo-landing
+npm install
+npm run dev
 ```
 
 ## Comandos
 
-Todos corren desde la raíz de este proyecto:
-
 | Comando                | Acción                                       |
 | ---------------------- | -------------------------------------------- |
-| `npm install`          | Instala dependencias                         |
 | `npm run dev`          | Dev server en `localhost:4321`               |
 | `npm run build`        | Build de producción a `./dist/`              |
 | `npm run preview`      | Preview local del build                      |
@@ -86,13 +29,17 @@ Todos corren desde la raíz de este proyecto:
 | `npm run format`       | Prettier — aplica formato (incluye `.astro`) |
 | `npm run format:check` | Prettier — solo verifica, no escribe         |
 
-## Trabajar en este repo
+## Estructura
 
-Es un repo independiente — cloná normalmente:
-
-```sh
-git clone https://github.com/plusTTeam/plusnexo-landing.git
-cd plusnexo-landing
-npm install
-npm run dev
+```text
+/
+├── public/
+├── src/
+│   ├── components/
+│   ├── layouts/
+│   ├── pages/
+│   │   └── index.astro
+│   ├── scripts/
+│   └── styles/
+└── package.json
 ```
